@@ -2426,7 +2426,7 @@ const dragonOasis = [
   },
   {
     id: 152,
-    name: "Dagonbreath Blossom",
+    name: "Dragonbreath Blossom",
     location: "Dragon Oasis",
     rarity: 2,
     type: "Flower",
