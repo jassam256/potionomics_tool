@@ -3,6 +3,41 @@ class IngredientList {
     this.list = list;
     this.rootId = rootId;
 
+    this.filteredList = [];
+
+    this.locationsFilter = [
+      "Enchanted Forest",
+      "Mushroom Mire",
+      "Bone Wastes",
+      "Storm Plains",
+      "Ocean Coasts",
+      "Shadow Steppe",
+      "Sulfuric Falls",
+      "Ice Craggs",
+      "Crystalline Forest",
+      "Arctic",
+      "Dragon Oasis",
+      "Crater",
+      "Magical Wasteland",
+    ];
+
+    this.typesFilter = [
+      "Bone",
+      "Bug",
+      "Essence",
+      "Fish",
+      "Flesh",
+      "Flower",
+      "Fruit",
+      "Fungus",
+      "Gem",
+      "Mineral",
+      "Ore",
+      "Plant",
+      "Mana",
+      "Slime",
+    ];
+
     this.refresh(this.list);
   }
 
@@ -11,15 +46,32 @@ class IngredientList {
     return document.getElementById(this.rootId);
   }
 
-  refresh(list) {
+  filterList() {
+    const filteredList = [];
+    const list = this.list;
+
+    list.forEach((ingredient) => {
+      if (
+        this.locationsFilter.includes(ingredient.location) &&
+        this.typesFilter.includes(ingredient.type)
+      ) {
+        filteredList.push(ingredient);
+      }
+    });
+
+    this.filteredList = filteredList;
+  }
+
+  refresh() {
     const root = this.getRoot();
-    const sortedList = list;
+    this.filterList();
+    const list = this.filteredList;
 
     // Remove current elements
     root.replaceChildren();
 
     // For each ingredient
-    sortedList.forEach((i) => {
+    list.forEach((i) => {
       // Create table elements
       // Create row element
       const row = document.createElement("tr");

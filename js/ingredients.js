@@ -51,7 +51,7 @@ const enchantedForest = [
     name: "Rotfly Larva",
     location: "Enchanted Forest",
     rarity: 1,
-    type: "Insect",
+    type: "Bug",
     magimins: {
       a: 0,
       b: 0,
