@@ -1,0 +1,191 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* font sizing */
+  --font-size-sm: 0.85rem;
+  --font-size-md: 1rem;
+  --font-size-lg: 1.5rem;
+
+  /* spacing */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-7: 28px;
+  --space-8: 32px;
+
+  /* image sizing */
+  --img-sm: 32px;
+  --img-md: 48px;
+
+  /* table */
+  --table-header: #e0ffff;
+  --table-row: #ffffff;
+  --table-row-contrast: #f3f3f3;
+
+  /* magimin colors */
+  --mag-a: #cf5d5d;
+  --mag-b: #92e75a;
+  --mag-c: #f3e676;
+  --mag-d: #5981d8;
+  --mag-e: #d376f0;
+  --mag-total: #b6b6b6;
+
+  --mag-a-subtle: #ebb7b7;
+  --mag-b-subtle: #ccf1b2;
+  --mag-c-subtle: #f7f2bd;
+  --mag-d-subtle: #a8bff1;
+  --mag-e-subtle: #e6c4f0;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+main {
+  padding: var(--space-4);
+}
+
+/* TABLE STYLING */
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+/* cell and border */
+th,
+td {
+  padding: var(--space-2);
+  border: 1px solid black;
+}
+
+/* row contrast */
+tr {
+  background-color: var(--table-row);
+}
+
+tr:nth-child(even) {
+  background-color: var(--table-row-contrast);
+}
+
+/* header */
+th {
+  background-color: var(--table-header);
+  font-size: var(--font-size-sm);
+}
+
+/* general columns */
+.col-id,
+.col-rarity {
+  text-align: center;
+}
+
+.col-name,
+.col-location,
+.col-type,
+.col-quinn {
+  padding-left: var(--space-1);
+}
+
+.col-quinn {
+  text-align: right;
+}
+
+/* ingredient icons */
+.col-img img {
+  /* layout */
+  display: block;
+  margin: auto;
+
+  /* sizing */
+  width: var(--img-md);
+  height: var(--img-md);
+}
+
+/* magimin columns */
+#header-mag-a {
+  padding: var(--space-2);
+  background-color: var(--mag-a);
+}
+#header-mag-b {
+  padding: var(--space-2);
+  background-color: var(--mag-b);
+}
+#header-mag-c {
+  padding: var(--space-2);
+  background-color: var(--mag-c);
+}
+#header-mag-d {
+  padding: var(--space-2);
+  background-color: var(--mag-d);
+}
+#header-mag-e {
+  padding: var(--space-2);
+  background-color: var(--mag-e);
+}
+#header-mag-total {
+  background-color: var(--mag-total);
+}
+
+.col-mag-a {
+  text-align: center;
+  background-color: var(--mag-a-subtle);
+}
+.col-mag-b {
+  text-align: center;
+  background-color: var(--mag-b-subtle);
+}
+.col-mag-c {
+  text-align: center;
+  background-color: var(--mag-c-subtle);
+}
+.col-mag-d {
+  text-align: center;
+  background-color: var(--mag-d-subtle);
+}
+.col-mag-e {
+  text-align: center;
+  background-color: var(--mag-e-subtle);
+}
+
+.col-mag-total {
+  font-weight: 600;
+  text-align: center;
+}
+
+/* price column */
+.col-price {
+  text-align: center;
+}
+
+.col-price img {
+  display: block;
+  width: var(--img-sm);
+  height: var(--img-sm);
+
+  margin: auto;
+}
+
+/* traits column */
+.col-taste,
+.col-sensation,
+.col-aroma,
+.col-visual,
+.col-sound {
+  /* trait icons */
+  :where(img) {
+    /* layout */
+    display: block;
+    margin: auto;
+
+    /* sizing */
+    width: var(--img-sm);
+    height: var(--img-sm);
+  }
+}
