@@ -82,6 +82,7 @@ main {
 .magimin-filter-row {
   display: grid;
   grid: 1fr / 60px 60px 60px;
+  text-align: center;
 }
 
 .magimin-btns button {
