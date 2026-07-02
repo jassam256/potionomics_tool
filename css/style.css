@@ -90,8 +90,8 @@ main {
 
 .location-filter-l,
 .location-filter-r {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid: 1fr 1fr 1fr 1fr 1fr 1fr 1fr / 1fr;
 }
 
 /* type filter */
@@ -102,14 +102,15 @@ main {
 
 .type-filter-l,
 .type-filter-r {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid: 1fr 1fr 1fr 1fr 1fr 1fr 1fr / 1fr;
+  width: 100%;
 }
 
 /* trait filter */
 .traits-filter-content {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid: 1fr 1fr 1fr / 1fr 1fr;
 }
 
 /* rarity filter */
