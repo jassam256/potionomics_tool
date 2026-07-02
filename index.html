@@ -7,41 +7,170 @@
     <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
-    <header></header>
+    <header>
+      <h1>Potionomics Application</h1>
+    </header>
 
     <main>
-      <table>
-        <thead>
-          <tr>
-            <th id="header-id">#</th>
-            <th id="header-icon">Icon</th>
-            <th id="header-name">Ingredient</th>
-            <th id="header-location">Location</th>
-            <th id="header-rarity">Rarity</th>
-            <th id="header-type">Type</th>
-            <!-- MAGIMINS -->
-            <th id="header-mag-a">A</th>
-            <th id="header-mag-b">B</th>
-            <th id="header-mag-c">C</th>
-            <th id="header-mag-d">D</th>
-            <th id="header-mag-e">E</th>
-            <th id="header-mag-total">Total</th>
+      <div class="sidebar">
+        <h2>Sidebar</h2>
+        <div class="search-section">
+          <h3>Search</h3>
+          <label for="search">Search: </label>
+          <input type="text" name="search" id="searchString" />
+        </div>
+        <div class="filter-section">
+          <h3>Filter</h3>
+          <div class="magimin-filter">
+            <h4>Magimins</h4>
+            <div class="magimin-filter-row">
+              <p>Type</p>
+              <p>Min</p>
+              <p>Max</p>
+            </div>
+            <div class="magimin-filter-row">
+              <button type="button">A</button>
+              <input type="text" name="" id="" />
+              <input type="text" name="" id="" />
+            </div>
+            <div class="magimin-filter-row">
+              <button type="button">B</button>
+              <input type="text" name="" id="" />
+              <input type="text" name="" id="" />
+            </div>
+            <div class="magimin-filter-row">
+              <button type="button">C</button>
+              <input type="text" name="" id="" />
+              <input type="text" name="" id="" />
+            </div>
+            <div class="magimin-filter-row">
+              <button type="button">D</button>
+              <input type="text" name="" id="" />
+              <input type="text" name="" id="" />
+            </div>
+            <div class="magimin-filter-row">
+              <button type="button">E</button>
+              <input type="text" name="" id="" />
+              <input type="text" name="" id="" />
+            </div>
+            <div class="magimin-filter-row">
+              <p>Total:</p>
+              <input type="text" name="" id="" />
+              <input type="text" name="" id="" />
+            </div>
+            <div class="magimin-btns">
+              <button type="button">Submit</button>
+              <button type="button">Clear</button>
+            </div>
+          </div>
+          <div class="location-filter">
+            <h4>Location</h4>
+            <button type="button">Filter</button>
+            <button type="button">Select All</button>
+            <button type="button">Select None</button>
+            <div class="location-filter-content">
+              <div class="location-filter-l">
+                <button>Enchanted Forest</button>
+                <button>Mushroom Mire</button>
+                <button>Bone Wastes</button>
+                <button>Storm Plains</button>
+                <button>Ocean Coasts</button>
+                <button>Shadow Steppe</button>
+                <button>Sulfuric Falls</button>
+              </div>
+              <div class="location-filter-r">
+                <button>Ice Craggs</button>
+                <button>Crystalline Forest</button>
+                <button>Arctic</button>
+                <button>Dragon Oasis</button>
+                <button>Crater</button>
+                <button>Magical Wasteland</button>
+              </div>
+            </div>
+          </div>
+          <div class="type-filter">
+            <h4>Type</h4>
+            <button type="button">Filter</button>
+            <button type="button">Select All</button>
+            <button type="button">Select None</button>
+            <div class="type-filter-content">
+              <div class="type-filter-l">
+                <button type="button">Bone</button>
+                <button type="button">Bug</button>
+                <button type="button">Essence</button>
+                <button type="button">Fish</button>
+                <button type="button">Flesh</button>
+                <button type="button">Flower</button>
+                <button type="button">Fruit</button>
+              </div>
+              <div class="type-filter-r">
+                <button type="button">Fungus</button>
+                <button type="button">Gem</button>
+                <button type="button">Mineral</button>
+                <button type="button">Ore</button>
+                <button type="button">Plant</button>
+                <button type="button">Pure Mana</button>
+                <button type="button">Slime</button>
+              </div>
+            </div>
+          </div>
+          <div class="trait-filter">
+            <h4>Traits</h4>
+            <button type="button">Traits</button>
+            <div class="traits-filter-content">
+              <button type="button">Taste</button>
+              <button type="button">Sensation</button>
+              <button type="button">Aroma</button>
+              <button type="button">Visual</button>
+              <button type="button">Sound</button>
+            </div>
+          </div>
+          <div class="rarity-filter">
+            <h4>Rarity</h4>
+            <div class="rarity-filter-content">
+              <p>Toggle Rarity:</p>
+              <button type="button">1</button>
+              <button type="button">2</button>
+              <button type="button">3</button>
+              <button type="button">4</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th id="header-id">#</th>
+              <th id="header-icon">Icon</th>
+              <th id="header-name">Ingredient</th>
+              <th id="header-location">Location</th>
+              <th id="header-rarity">Rarity</th>
+              <th id="header-type">Type</th>
+              <!-- MAGIMINS -->
+              <th id="header-mag-a">A</th>
+              <th id="header-mag-b">B</th>
+              <th id="header-mag-c">C</th>
+              <th id="header-mag-d">D</th>
+              <th id="header-mag-e">E</th>
+              <th id="header-mag-total">Total</th>
 
-            <!-- SHOP INFO -->
-            <th id="header-price">Base Price</th>
-            <th id="header-quinn">Sold by Quinn</th>
+              <!-- SHOP INFO -->
+              <th id="header-price">Base Price</th>
+              <th id="header-quinn">Sold by Quinn</th>
 
-            <!-- TRAITS -->
-            <th id="header-taste">Taste</th>
-            <!-- Sense instead of sensation -->
-            <th id="header-sensation">Sense</th>
-            <th id="header-aroma">Aroma</th>
-            <th id="header-visual">Visual</th>
-            <th id="header-sound">Sound</th>
-          </tr>
-        </thead>
-        <tbody id="list"></tbody>
-      </table>
+              <!-- TRAITS -->
+              <th id="header-taste">Taste</th>
+              <!-- Sense instead of sensation -->
+              <th id="header-sensation">Sense</th>
+              <th id="header-aroma">Aroma</th>
+              <th id="header-visual">Visual</th>
+              <th id="header-sound">Sound</th>
+            </tr>
+          </thead>
+          <tbody id="list"></tbody>
+        </table>
+      </div>
     </main>
 
     <footer></footer>
