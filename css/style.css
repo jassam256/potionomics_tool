@@ -48,8 +48,79 @@ body {
   font-family: sans-serif;
 }
 
+/* HEADER */
+header {
+  padding-top: var(--space-3);
+  padding-left: var(--space-4);
+}
+
+/* MAIN SECTION */
 main {
+  /* layout */
+  display: flex;
+  flex-direction: row;
+
+  align-items: start;
+
+  /* spacing */
+  gap: var(--space-3);
   padding: var(--space-4);
+}
+
+.sidebar {
+  width: 240px;
+}
+
+/* FILTER STYLING */
+/* magimin filter */
+.magimin-filter-row {
+  display: grid;
+  grid: 1fr / 60px 60px 60px;
+}
+
+.magimin-btns button {
+  width: 88px;
+}
+
+/* location filter */
+.location-filter-content {
+  display: grid;
+  grid: 1fr / 1fr 1fr;
+}
+
+.location-filter-l,
+.location-filter-r {
+  display: grid;
+  grid: 1fr 1fr 1fr 1fr 1fr 1fr 1fr / 1fr;
+}
+
+/* type filter */
+.type-filter-content {
+  display: flex;
+  flex-direction: row;
+}
+
+.type-filter-l,
+.type-filter-r {
+  display: grid;
+  grid: 1fr 1fr 1fr 1fr 1fr 1fr 1fr / 1fr;
+  width: 100%;
+}
+
+/* trait filter */
+.traits-filter-content {
+  display: grid;
+  grid: 1fr 1fr 1fr / 1fr 1fr;
+}
+
+/* rarity filter */
+.rarity-filter-content {
+  display: flex;
+  gap: var(--space-1);
+}
+
+.rarity-filter-content button {
+  width: var(--space-4);
 }
 
 /* TABLE STYLING */
