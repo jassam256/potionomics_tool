@@ -180,6 +180,17 @@ th {
 }
 
 /* magimin columns */
+#header-mag-a,
+#header-mag-b,
+#header-mag-c,
+#header-mag-d,
+#header-mag-e {
+  :where(img) {
+    width: 20px;
+    height: 23px;
+  }
+}
+
 #header-mag-a {
   padding: var(--space-2);
   background-color: var(--mag-a);
