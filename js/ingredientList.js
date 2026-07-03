@@ -56,6 +56,8 @@ class IngredientList {
 
     this.rarityFilter = [1, 2, 3, 4];
 
+    this.traitsFilter = [null, null, null, null, null];
+
     this.refresh();
   }
 
@@ -86,7 +88,8 @@ class IngredientList {
         this.locationsFilter.includes(ingredient.location) &&
         this.typesFilter.includes(ingredient.type) &&
         this.filterMagimins(ingredient.magimins) &&
-        this.filterRarity(ingredient.rarity)
+        this.filterRarity(ingredient.rarity) &&
+        this.filterEachTrait(ingredient.traits)
       ) {
         filteredList.push(ingredient);
       }
@@ -139,6 +142,52 @@ class IngredientList {
 
   filterRarity(rarity) {
     return this.rarityFilter.includes(rarity) ? true : false;
+  }
+
+  filterEachTrait(traits) {
+    const filter = this.filterTrait;
+
+    const tasteIndex = this.traitsFilter[0];
+    const sensationIndex = this.traitsFilter[1];
+    const aromaIndex = this.traitsFilter[2];
+    const visualIndex = this.traitsFilter[3];
+    const soundIndex = this.traitsFilter[4];
+
+    return filter(traits.taste, tasteIndex) &&
+      filter(traits.sensation, sensationIndex) &&
+      filter(traits.aroma, aromaIndex) &&
+      filter(traits.visual, visualIndex) &&
+      filter(traits.sound, soundIndex)
+      ? true
+      : false;
+  }
+
+  filterTrait(trait, traitTarget) {
+    const target = traitTarget;
+
+    if (target == null) {
+      return true;
+    } else return target == trait ? true : false;
+  }
+
+  toggleTrait(traitId) {
+    let traitTarget = this.traitsFilter;
+
+    if (traitTarget[traitId] == null) {
+      traitTarget[traitId] = 1;
+    } else if (traitTarget[traitId] == 1) {
+      traitTarget[traitId] = -1;
+    } else if (traitTarget[traitId] == 0) {
+      traitTarget[traitId] = 0;
+    } else traitTarget[traitId] = null;
+
+    console.log(this.traitsFilter);
+
+    refresh();
+  }
+
+  resetTraits() {
+    this.traitsFilter = [null, null, null, null, null];
   }
 
   refresh() {

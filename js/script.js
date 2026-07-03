@@ -95,6 +95,7 @@ function resetAllFields() {
   resetMagimins();
   resetRarity();
   resetTypes();
+  ingredientList.resetTraits();
 }
 
 resetAll.addEventListener("click", () => {
@@ -309,6 +310,35 @@ addRarityFilter(rarity1, 1);
 addRarityFilter(rarity2, 2);
 addRarityFilter(rarity3, 3);
 addRarityFilter(rarity4, 4);
+
+// Traits
+const tasteBtn = document.getElementById("taste-btn");
+const sensationBtn = document.getElementById("sensation-btn");
+const aromaBtn = document.getElementById("aroma-btn");
+const visualBtn = document.getElementById("visual-btn");
+const soundBtn = document.getElementById("sound-btn");
+
+const resetTraits = document.getElementById("reset-traits");
+
+resetTraits.addEventListener("click", () => {
+  ingredientList.resetTraits();
+
+  refresh();
+});
+
+function addTraitToggle(id, traitId) {
+  id.addEventListener("click", () => {
+    ingredientList.toggleTrait(traitId);
+
+    refresh();
+  });
+}
+
+addTraitToggle(tasteBtn, 0);
+addTraitToggle(sensationBtn, 1);
+addTraitToggle(aromaBtn, 2);
+addTraitToggle(visualBtn, 3);
+addTraitToggle(soundBtn, 4);
 
 // SEARCH
 const searchBar = document.getElementById("search-string");
