@@ -282,7 +282,7 @@ const rarityAll = document.getElementById("rarity-all");
 const rarityNone = document.getElementById("rarity-none");
 
 rarityAll.addEventListener("click", () => {
-  resetRarity;
+  resetRarity();
 
   refresh();
 });

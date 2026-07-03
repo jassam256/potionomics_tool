@@ -1,5 +1,14 @@
 # Potionomics Application Planning
 
+## Next Steps
+
+- Add magimin toggles (buttons)
+- Add dropdown toggles for each filtering option
+- Add traits filtering (3 state filter: positive, negative, none or 1, -1, 0)
+- Styling to sidebar section
+- Responsive design for different device screen sizes
+- Add sort mode (on top of filtering)
+
 ## Table
 
 - Add header fields for sorting (ascending, descending)
