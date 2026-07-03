@@ -88,3 +88,47 @@ addTypeToggle(oreBtn, "Ore");
 addTypeToggle(plantBtn, "Plant");
 addTypeToggle(manaBtn, "Mana");
 addTypeToggle(slimeBtn, "Slime");
+
+// Magimins
+const aMinInput = document.getElementById("a-min");
+const aMaxInput = document.getElementById("a-max");
+const bMinInput = document.getElementById("b-min");
+const bMaxInput = document.getElementById("b-max");
+const cMinInput = document.getElementById("c-min");
+const cMaxInput = document.getElementById("c-max");
+const dMinInput = document.getElementById("d-min");
+const dMaxInput = document.getElementById("d-max");
+const eMinInput = document.getElementById("e-min");
+const eMaxInput = document.getElementById("e-max");
+const totalMinInput = document.getElementById("total-min");
+const totalMaxInput = document.getElementById("total-max");
+
+function addMagiminFilter(id, key) {
+  id.addEventListener("change", () => {
+    const magiminsFilter = ingredientList.magiminsFilter;
+
+    // Set default values if empty
+    if (id.value == "") {
+      key.includes("Min")
+        ? (magiminsFilter[key] = 0)
+        : (magiminsFilter[key] = 999);
+    } else magiminsFilter[key] = id.value;
+
+    console.log(magiminsFilter[key]);
+
+    ingredientList.refresh();
+  });
+}
+
+addMagiminFilter(aMinInput, "aMin");
+addMagiminFilter(aMaxInput, "aMax");
+addMagiminFilter(bMinInput, "bMin");
+addMagiminFilter(bMaxInput, "bMax");
+addMagiminFilter(cMinInput, "cMin");
+addMagiminFilter(cMaxInput, "cMax");
+addMagiminFilter(dMinInput, "dMin");
+addMagiminFilter(dMaxInput, "dMax");
+addMagiminFilter(eMinInput, "eMin");
+addMagiminFilter(eMaxInput, "eMax");
+addMagiminFilter(totalMinInput, "totalMin");
+addMagiminFilter(totalMaxInput, "totalMax");

@@ -1642,7 +1642,7 @@ const shadowSteppe = [
     id: 82,
     name: "Mote of Mana",
     location: "Shadow Steppe",
-    rarity: NaN,
+    rarity: 4,
     type: "Mana",
     magimins: { a: 15, b: 15, c: 15, d: 15, e: 15 },
     basePrice: 130,
