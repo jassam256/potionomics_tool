@@ -132,3 +132,11 @@ addMagiminFilter(eMinInput, "eMin");
 addMagiminFilter(eMaxInput, "eMax");
 addMagiminFilter(totalMinInput, "totalMin");
 addMagiminFilter(totalMaxInput, "totalMax");
+
+// SEARCH
+const searchBar = document.getElementById("search-string");
+searchBar.addEventListener("change", () => {
+  ingredientList.searchString = searchBar.value;
+
+  ingredientList.refresh();
+});
