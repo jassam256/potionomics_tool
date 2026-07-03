@@ -1,7 +1,56 @@
 let ingredientList = new IngredientList(ingredients, "list");
 
+// DEFAULT VALUES
+const locationsDefault = [
+  "Enchanted Forest",
+  "Mushroom Mire",
+  "Bone Wastes",
+  "Storm Plains",
+  "Ocean Coasts",
+  "Shadow Steppe",
+  "Sulfuric Falls",
+  "Ice Craggs",
+  "Crystalline Forest",
+  "Arctic",
+  "Dragon Oasis",
+  "Crater",
+  "Magical Wasteland",
+];
+
+const typesDefault = [
+  "Bone",
+  "Bug",
+  "Essence",
+  "Fish",
+  "Flesh",
+  "Flower",
+  "Fruit",
+  "Fungus",
+  "Gem",
+  "Mineral",
+  "Ore",
+  "Plant",
+  "Mana",
+  "Slime",
+];
+
 // FILTER BUTTONS
 // Locations
+const locationAll = document.getElementById("location-all");
+const locationNone = document.getElementById("location-none");
+
+locationAll.addEventListener("click", () => {
+  ingredientList.locationsFilter = locationsDefault;
+
+  ingredientList.refresh();
+});
+
+locationNone.addEventListener("click", () => {
+  ingredientList.locationsFilter = [];
+
+  ingredientList.refresh();
+});
+
 const efBtn = document.getElementById("toggle-ef");
 const bwBtn = document.getElementById("toggle-bw");
 const ocBtn = document.getElementById("toggle-oc");
@@ -45,6 +94,21 @@ addLocationToggle(crBtn, "Crater");
 addLocationToggle(mwBtn, "Magical Wasteland");
 
 // Types
+const typesAll = document.getElementById("types-all");
+const typesNone = document.getElementById("types-none");
+
+typesAll.addEventListener("click", () => {
+  ingredientList.typesFilter = typesDefault;
+
+  ingredientList.refresh();
+});
+
+typesNone.addEventListener("click", () => {
+  ingredientList.typesFilter = [];
+
+  ingredientList.refresh();
+});
+
 const boneBtn = document.getElementById("bone");
 const essenceBtn = document.getElementById("essence");
 const fleshBtn = document.getElementById("flesh");
