@@ -54,6 +54,8 @@ class IngredientList {
       totalMax: 999,
     };
 
+    this.rarityFilter = [1, 2, 3, 4];
+
     this.refresh();
   }
 
@@ -83,7 +85,8 @@ class IngredientList {
       if (
         this.locationsFilter.includes(ingredient.location) &&
         this.typesFilter.includes(ingredient.type) &&
-        this.filterMagimins(ingredient.magimins)
+        this.filterMagimins(ingredient.magimins) &&
+        this.filterRarity(ingredient.rarity)
       ) {
         filteredList.push(ingredient);
       }
@@ -132,6 +135,10 @@ class IngredientList {
     ) {
       return true;
     } else return false;
+  }
+
+  filterRarity(rarity) {
+    return this.rarityFilter.includes(rarity) ? true : false;
   }
 
   refresh() {

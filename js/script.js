@@ -1,5 +1,9 @@
 let ingredientList = new IngredientList(ingredients, "list");
 
+function refresh() {
+  ingredientList.refresh();
+}
+
 // DEFAULT VALUES
 const locationsDefault = [
   "Enchanted Forest",
@@ -34,21 +38,86 @@ const typesDefault = [
   "Slime",
 ];
 
+// RESET FIELDS
+function clearSearch() {
+  searchBar.value = "";
+}
+
+function resetLocations() {
+  ingredientList.locationsFilter = locationsDefault;
+}
+
+function resetTypes() {
+  ingredientList.typesFilter = typesDefault;
+}
+
+function resetRarity() {
+  ingredientList.rarityFilter = [1, 2, 3, 4];
+}
+
+function resetMagimins() {
+  // Clear magimin input fields
+  aMinInput.value = "";
+  aMaxInput.value = "";
+  bMinInput.value = "";
+  bMaxInput.value = "";
+  cMinInput.value = "";
+  cMaxInput.value = "";
+  dMinInput.value = "";
+  dMaxInput.value = "";
+  eMinInput.value = "";
+  eMaxInput.value = "";
+  totalMinInput.value = "";
+  totalMaxInput.value = "";
+
+  ingredientList.magiminsFilter = {
+    aMin: 0,
+    aMax: 999,
+    bMin: 0,
+    bMax: 999,
+    cMin: 0,
+    cMax: 999,
+    dMin: 0,
+    dMax: 999,
+    eMin: 0,
+    eMax: 999,
+    totalMin: 0,
+    totalMax: 999,
+  };
+}
+
+// RESET ALL
+const resetAll = document.getElementById("reset-all");
+
+function resetAllFields() {
+  clearSearch();
+  resetLocations();
+  resetMagimins();
+  resetRarity();
+  resetTypes();
+}
+
+resetAll.addEventListener("click", () => {
+  resetAllFields();
+
+  refresh();
+});
+
 // FILTER BUTTONS
 // Locations
 const locationAll = document.getElementById("location-all");
 const locationNone = document.getElementById("location-none");
 
 locationAll.addEventListener("click", () => {
-  ingredientList.locationsFilter = locationsDefault;
+  resetLocations();
 
-  ingredientList.refresh();
+  refresh();
 });
 
 locationNone.addEventListener("click", () => {
   ingredientList.locationsFilter = [];
 
-  ingredientList.refresh();
+  refresh();
 });
 
 const efBtn = document.getElementById("toggle-ef");
@@ -75,7 +144,7 @@ function addLocationToggle(id, location) {
       ? locationsList.splice(locationsList.indexOf(location), 1)
       : locationsList.push(location);
 
-    ingredientList.refresh();
+    refresh();
   });
 }
 
@@ -98,15 +167,15 @@ const typesAll = document.getElementById("types-all");
 const typesNone = document.getElementById("types-none");
 
 typesAll.addEventListener("click", () => {
-  ingredientList.typesFilter = typesDefault;
+  resetTypes();
 
-  ingredientList.refresh();
+  refresh();
 });
 
 typesNone.addEventListener("click", () => {
   ingredientList.typesFilter = [];
 
-  ingredientList.refresh();
+  refresh();
 });
 
 const boneBtn = document.getElementById("bone");
@@ -134,7 +203,7 @@ function addTypeToggle(id, type) {
       ? typesList.splice(typesList.indexOf(type), 1)
       : typesList.push(type);
 
-    ingredientList.refresh();
+    refresh();
   });
 }
 
@@ -166,6 +235,13 @@ const eMinInput = document.getElementById("e-min");
 const eMaxInput = document.getElementById("e-max");
 const totalMinInput = document.getElementById("total-min");
 const totalMaxInput = document.getElementById("total-max");
+const magiminClear = document.getElementById("magimin-clear");
+
+magiminClear.addEventListener("click", () => {
+  resetMagimins();
+
+  refresh();
+});
 
 function addMagiminFilter(id, key) {
   id.addEventListener("change", () => {
@@ -180,7 +256,7 @@ function addMagiminFilter(id, key) {
 
     console.log(magiminsFilter[key]);
 
-    ingredientList.refresh();
+    refresh();
   });
 }
 
@@ -197,10 +273,47 @@ addMagiminFilter(eMaxInput, "eMax");
 addMagiminFilter(totalMinInput, "totalMin");
 addMagiminFilter(totalMaxInput, "totalMax");
 
+// Rarity
+const rarity1 = document.getElementById("rarity-1");
+const rarity2 = document.getElementById("rarity-2");
+const rarity3 = document.getElementById("rarity-3");
+const rarity4 = document.getElementById("rarity-4");
+const rarityAll = document.getElementById("rarity-all");
+const rarityNone = document.getElementById("rarity-none");
+
+rarityAll.addEventListener("click", () => {
+  resetRarity;
+
+  refresh();
+});
+
+rarityNone.addEventListener("click", () => {
+  ingredientList.rarityFilter = [];
+
+  refresh();
+});
+
+function addRarityFilter(id, number) {
+  id.addEventListener("click", () => {
+    const rarityFilter = ingredientList.rarityFilter;
+
+    rarityFilter.includes(number)
+      ? rarityFilter.splice(rarityFilter.indexOf(number), 1)
+      : rarityFilter.push(number);
+
+    refresh();
+  });
+}
+
+addRarityFilter(rarity1, 1);
+addRarityFilter(rarity2, 2);
+addRarityFilter(rarity3, 3);
+addRarityFilter(rarity4, 4);
+
 // SEARCH
 const searchBar = document.getElementById("search-string");
 searchBar.addEventListener("change", () => {
   ingredientList.searchString = searchBar.value;
 
-  ingredientList.refresh();
+  refresh();
 });

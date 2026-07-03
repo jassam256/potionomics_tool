@@ -21,6 +21,7 @@
         </div>
         <div class="filter-section">
           <h3>Filter</h3>
+          <button type="button" id="reset-all">Reset All</button>
           <div class="magimin-filter">
             <h4>Magimins</h4>
             <div class="magimin-filter-row">
@@ -59,13 +60,11 @@
               <input type="text" name="" id="total-max" />
             </div>
             <div class="magimin-btns">
-              <button type="button">Submit</button>
-              <button type="button">Clear</button>
+              <button type="button" id="magimin-clear">Clear</button>
             </div>
           </div>
           <div class="location-filter">
             <h4>Location</h4>
-            <button type="button">Filter</button>
             <button type="button" id="location-all">Select All</button>
             <button type="button" id="location-none">Select None</button>
             <div class="location-filter-content">
@@ -90,7 +89,6 @@
           </div>
           <div class="type-filter">
             <h4>Type</h4>
-            <button type="button">Filter</button>
             <button type="button" id="types-all">Select All</button>
             <button type="button" id="types-none">Select None</button>
             <div class="type-filter-content">
@@ -116,7 +114,6 @@
           </div>
           <div class="trait-filter">
             <h4>Traits</h4>
-            <button type="button">Traits</button>
             <div class="traits-filter-content">
               <button type="button">Taste</button>
               <button type="button">Sensation</button>
@@ -127,12 +124,14 @@
           </div>
           <div class="rarity-filter">
             <h4>Rarity</h4>
+            <button type="button" id="rarity-all">All</button>
+            <button type="button" id="rarity-none">None</button>
             <div class="rarity-filter-content">
               <p>Toggle Rarity:</p>
-              <button type="button">1</button>
-              <button type="button">2</button>
-              <button type="button">3</button>
-              <button type="button">4</button>
+              <button type="button" id="rarity-1">1</button>
+              <button type="button" id="rarity-2">2</button>
+              <button type="button" id="rarity-3">3</button>
+              <button type="button" id="rarity-4">4</button>
             </div>
           </div>
         </div>
