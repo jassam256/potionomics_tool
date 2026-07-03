@@ -177,7 +177,7 @@ class IngredientList {
       traitTarget[traitId] = 1;
     } else if (traitTarget[traitId] == 1) {
       traitTarget[traitId] = -1;
-    } else if (traitTarget[traitId] == 0) {
+    } else if (traitTarget[traitId] == -1) {
       traitTarget[traitId] = 0;
     } else traitTarget[traitId] = null;
 
