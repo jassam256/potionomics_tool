@@ -4,6 +4,7 @@ class IngredientList {
     this.rootId = rootId;
 
     this.filteredList = [];
+    this.searchString = "";
 
     this.locationsFilter = [
       "Enchanted Forest",
@@ -61,9 +62,22 @@ class IngredientList {
     return document.getElementById(this.rootId);
   }
 
-  filterList() {
-    const filteredList = [];
+  searchList(string) {
+    const results = [];
     const list = this.list;
+
+    if (string != "") {
+      list.forEach((ingredient) => {
+        if (ingredient.name.toLowerCase().includes(string.toLowerCase())) {
+          results.push(ingredient);
+        }
+      });
+      return results;
+    } else return list;
+  }
+
+  filterList(list) {
+    let filteredList = [];
 
     list.forEach((ingredient) => {
       if (
@@ -122,7 +136,7 @@ class IngredientList {
 
   refresh() {
     const root = this.getRoot();
-    this.filterList();
+    this.filterList(this.searchList(this.searchString));
     const list = this.filteredList;
 
     // Remove current elements
