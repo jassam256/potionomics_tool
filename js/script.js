@@ -347,3 +347,28 @@ searchBar.addEventListener("change", () => {
 
   refresh();
 });
+
+// DROPDOWN TOGGLES
+const magiminToggle = document.getElementById("magimin-toggle");
+const locationToggle = document.getElementById("location-toggle");
+const typeToggle = document.getElementById("type-toggle");
+const traitsToggle = document.getElementById("traits-toggle");
+const rarityToggle = document.getElementById("rarity-toggle");
+
+const magiminDropdown = document.getElementById("magimin-filter");
+const locationDropdown = document.getElementById("location-filter");
+const typeDropdown = document.getElementById("type-filter");
+const traitsDropdown = document.getElementById("traits-filter");
+const rarityDropdown = document.getElementById("rarity-filter");
+
+function addHideToggle(id, target) {
+  id.addEventListener("click", () => {
+    target.classList.toggle("hide");
+  });
+}
+
+addHideToggle(magiminToggle, magiminDropdown);
+addHideToggle(locationToggle, locationDropdown);
+addHideToggle(typeToggle, typeDropdown);
+addHideToggle(traitsToggle, traitsDropdown);
+addHideToggle(rarityToggle, rarityDropdown);

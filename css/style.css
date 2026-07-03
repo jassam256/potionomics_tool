@@ -54,6 +54,11 @@ header {
   padding-left: var(--space-4);
 }
 
+button {
+  cursor: pointer;
+  margin: 0.1rem;
+}
+
 /* MAIN SECTION */
 main {
   /* layout */
@@ -66,7 +71,7 @@ main {
   /* spacing */
 
   gap: var(--space-3);
-  padding: var(--space-4);
+  padding: var(--space-2);
 }
 
 .sidebar {
@@ -75,6 +80,8 @@ main {
   z-index: 1000;
 
   min-width: 250px;
+
+  height: 100%;
 }
 
 /* FILTER STYLING */
@@ -286,4 +293,25 @@ th {
     width: var(--img-sm);
     height: var(--img-sm);
   }
+}
+
+.hide {
+  display: none;
+}
+
+.filter-toggle {
+  background-color: #ffffff;
+
+  border: 1px solid black;
+  padding: var(--space-1);
+
+  &:hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }
+}
+
+.filter-section {
+  border: 1px solid black;
+  padding: var(--space-1);
 }

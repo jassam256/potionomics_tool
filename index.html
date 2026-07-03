@@ -19,11 +19,11 @@
           <label for="search">Search: </label>
           <input type="text" name="search" id="search-string" />
         </div>
-        <div class="filter-section">
+        <div>
           <h3>Filter</h3>
           <button type="button" id="reset-all">Reset All</button>
-          <div class="magimin-filter">
-            <h4>Magimins</h4>
+          <h4 id="magimin-toggle" class="filter-toggle">Magimins</h4>
+          <div id="magimin-filter" class="filter-section hide">
             <div class="magimin-filter-row">
               <p>Type</p>
               <p>Min</p>
@@ -63,8 +63,8 @@
               <button type="button" id="magimin-clear">Clear</button>
             </div>
           </div>
-          <div class="location-filter">
-            <h4>Location</h4>
+          <h4 id="location-toggle" class="filter-toggle">Location</h4>
+          <div id="location-filter" class="filter-section hide">
             <button type="button" id="location-all">Select All</button>
             <button type="button" id="location-none">Select None</button>
             <div class="location-filter-content">
@@ -87,8 +87,8 @@
               </div>
             </div>
           </div>
-          <div class="type-filter">
-            <h4>Type</h4>
+          <h4 id="type-toggle" class="filter-toggle">Type</h4>
+          <div id="type-filter" class="filter-section hide">
             <button type="button" id="types-all">Select All</button>
             <button type="button" id="types-none">Select None</button>
             <div class="type-filter-content">
@@ -112,9 +112,9 @@
               </div>
             </div>
           </div>
-          <div class="trait-filter">
-            <h4>Traits</h4>
-            <button type="button" id="reset-traits">Reset</button>
+          <h4 id="traits-toggle" class="filter-toggle">Traits</h4>
+          <div id="traits-filter" class="filter-section hide">
+            <button type="button" id="reset-traits">Reset All</button>
             <div class="traits-filter-content">
               <button type="button" id="taste-btn">Taste</button>
               <button type="button" id="sensation-btn">Sensation</button>
@@ -123,8 +123,8 @@
               <button type="button" id="sound-btn">Sound</button>
             </div>
           </div>
-          <div class="rarity-filter">
-            <h4>Rarity</h4>
+          <h4 id="rarity-toggle" class="filter-toggle">Rarity</h4>
+          <div id="rarity-filter" class="filter-section hide">
             <button type="button" id="rarity-all">Select All</button>
             <button type="button" id="rarity-none">Select None</button>
             <div class="rarity-filter-content">
