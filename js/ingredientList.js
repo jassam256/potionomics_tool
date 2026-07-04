@@ -58,6 +58,8 @@ class IngredientList {
 
     this.traitsFilter = [null, null, null, null, null];
 
+    this.sortMode = { key: "none", mode: "ascending" };
+
     this.refresh();
   }
 
@@ -181,8 +183,6 @@ class IngredientList {
       traitTarget[traitId] = 0;
     } else traitTarget[traitId] = null;
 
-    console.log(this.traitsFilter);
-
     refresh();
   }
 
@@ -190,9 +190,88 @@ class IngredientList {
     this.traitsFilter = [null, null, null, null, null];
   }
 
+  sortList() {
+    const list = this.filteredList;
+    const key = this.sortMode.key.split(".");
+
+    console.log(key);
+
+    let filteredList = [];
+
+    if (this.keyIsString(key) == true) {
+      filteredList = list.sort((a, b) => {
+        const aValue = a[key].toLowerCase();
+        const bValue = b[key].toLowerCase();
+
+        let result = aValue - bValue;
+
+        if (aValue < bValue) {
+          return -1;
+        } else if (aValue > bValue) {
+          return 1;
+        } else return 0;
+      });
+    } else if (key.length != 1) {
+      filteredList = list.sort((a, b) => {
+        if (key[1] == "total") {
+          const totalA =
+            a.magimins.a +
+            a.magimins.b +
+            a.magimins.c +
+            a.magimins.d +
+            a.magimins.e;
+
+          const totalB =
+            b.magimins.a +
+            b.magimins.b +
+            b.magimins.c +
+            b.magimins.d +
+            b.magimins.e;
+
+          return totalA - totalB;
+        }
+
+        return a[key[0]][key[1]] - b[key[0]][key[1]];
+      });
+    } else
+      filteredList = list.sort((a, b) => {
+        return a[key] - b[key];
+      });
+
+    if (this.sortMode.mode != "ascending") {
+      return filteredList.reverse();
+    } else return filteredList;
+  }
+
+  setSortMode(key) {
+    if (this.sortMode.key != key) {
+      this.sortMode.mode = "ascending";
+    }
+
+    this.sortMode.key = key;
+
+    if (this.sortMode.mode == "ascending") {
+      this.sortMode.mode = "descending";
+    } else this.sortMode.mode = "ascending";
+
+    console.log(this.sortMode.key);
+    console.log(this.sortMode.mode);
+  }
+
+  keyIsString(key) {
+    return key == "name" || key == "location" || key == "type" ? true : false;
+  }
+
   refresh() {
     const root = this.getRoot();
+
     this.filterList(this.searchList(this.searchString));
+
+    if (this.sortMode.key != "none") {
+      console.log("sorting");
+      this.sortList();
+    }
+
     const list = this.filteredList;
 
     // Remove current elements

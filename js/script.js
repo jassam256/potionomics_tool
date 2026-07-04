@@ -55,6 +55,11 @@ function resetRarity() {
   ingredientList.rarityFilter = [1, 2, 3, 4];
 }
 
+function resetSort() {
+  ingredientList.sortMode.key = "none";
+  ingredientList.sortMode.mode = "ascending";
+}
+
 function resetMagimins() {
   // Clear magimin input fields
   aMinInput.value = "";
@@ -95,6 +100,7 @@ function resetAllFields() {
   resetMagimins();
   resetRarity();
   resetTypes();
+  resetSort();
   ingredientList.resetTraits();
 }
 
@@ -372,3 +378,62 @@ addHideToggle(locationToggle, locationDropdown);
 addHideToggle(typeToggle, typeDropdown);
 addHideToggle(traitsToggle, traitsDropdown);
 addHideToggle(rarityToggle, rarityDropdown);
+
+// SORTING
+const idSort = document.getElementById("header-id");
+const iconSort = document.getElementById("header-icon");
+const nameSort = document.getElementById("header-name");
+const locationSort = document.getElementById("header-location");
+const raritySort = document.getElementById("header-rarity");
+const typeSort = document.getElementById("header-type");
+
+const magASort = document.getElementById("header-mag-a");
+const magBSort = document.getElementById("header-mag-b");
+const magCSort = document.getElementById("header-mag-c");
+const magDSort = document.getElementById("header-mag-d");
+const magESort = document.getElementById("header-mag-e");
+const magTotalSort = document.getElementById("header-mag-total");
+
+const priceSort = document.getElementById("header-price");
+const quinnSort = document.getElementById("header-quinn");
+
+const tasteSort = document.getElementById("header-taste");
+const sensationSort = document.getElementById("header-sensation");
+const aromaSort = document.getElementById("header-aroma");
+const visualSort = document.getElementById("header-visual");
+const soundSort = document.getElementById("header-sound");
+
+function addSortToggle(id, key) {
+  id.addEventListener("click", () => {
+    ingredientList.setSortMode(key);
+
+    refresh();
+  });
+}
+
+// INGREDIENT SORTING
+addSortToggle(idSort, "id");
+addSortToggle(iconSort, "id");
+addSortToggle(nameSort, "name");
+addSortToggle(locationSort, "location");
+addSortToggle(raritySort, "rarity");
+addSortToggle(typeSort, "type");
+
+// MAGIMIN SORTING
+addSortToggle(magASort, "magimins.a");
+addSortToggle(magBSort, "magimins.b");
+addSortToggle(magCSort, "magimins.c");
+addSortToggle(magDSort, "magimins.d");
+addSortToggle(magESort, "magimins.e");
+addSortToggle(magTotalSort, "magimin.total");
+
+// SHOP SORTING
+addSortToggle(priceSort, "price");
+addSortToggle(quinnSort, "quinnQuantity");
+
+// TRAITS SORTING
+addSortToggle(tasteSort, "traits.taste");
+addSortToggle(sensationSort, "traits.sensation");
+addSortToggle(aromaSort, "traits.aroma");
+addSortToggle(visualSort, "traits.visual");
+addSortToggle(soundSort, "traits.sound");
