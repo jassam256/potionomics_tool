@@ -583,13 +583,12 @@ function toggleHeaderIndicator(id) {
   // Remove all OTHER header classes
   const headers = document.getElementsByTagName("th");
 
-  if (id == "header-icon") {
-    id = "header-id";
+  console.log(id);
+  if (id.getAttribute("id") == "header-icon") {
+    id = document.getElementById("header-id");
   }
 
   for (let header of headers) {
-    console.log(ingredientList.sortMode);
-
     if (header.getAttribute("id") != id.getAttribute("id")) {
       if (header.classList.contains("headerSortUp")) {
         header.classList.remove("headerSortUp");

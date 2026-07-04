@@ -204,9 +204,9 @@ class IngredientList {
         let result = aValue - bValue;
 
         if (aValue < bValue) {
-          return 1;
-        } else if (aValue > bValue) {
           return -1;
+        } else if (aValue > bValue) {
+          return 1;
         } else return 0;
       });
     } else if (key.length != 1) {
@@ -237,17 +237,19 @@ class IngredientList {
       });
 
     if (this.sortMode.mode != "ascending") {
+      console.log("reverse!");
       return filteredList.reverse();
     } else return filteredList;
   }
 
   setSortMode(key) {
     if (this.sortMode.key != key) {
+      this.sortMode.key = key;
       this.sortMode.mode = "ascending";
+      return;
     }
 
     this.sortMode.key = key;
-
     if (this.sortMode.mode == "ascending") {
       this.sortMode.mode = "descending";
     } else this.sortMode.mode = "ascending";
