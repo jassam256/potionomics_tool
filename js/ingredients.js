@@ -2009,7 +2009,7 @@ const iceCraggs = [
   },
   {
     id: 115,
-    name: "Ember of mana",
+    name: "Ember of Mana",
     location: "Ice Craggs",
     rarity: 4,
     type: "Mana",
