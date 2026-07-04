@@ -151,6 +151,7 @@ function resetAllFields() {
   resetRarity();
   resetTypes();
   resetSort();
+  resetTraitButtons();
   ingredientList.resetTraits();
 }
 
@@ -433,6 +434,14 @@ const soundBtn = document.getElementById("sound-btn");
 const resetTraits = document.getElementById("reset-traits");
 
 resetTraits.addEventListener("click", () => {
+  resetTraitButtons();
+
+  ingredientList.resetTraits();
+
+  refresh();
+});
+
+function resetTraitButtons() {
   const traits = document
     .getElementsByClassName("traits-filter-content")[0]
     .querySelectorAll("button");
@@ -449,11 +458,7 @@ resetTraits.addEventListener("click", () => {
       states.remove("trait-none");
     }
   });
-
-  ingredientList.resetTraits();
-
-  refresh();
-});
+}
 
 function addTraitToggle(id, traitId) {
   id.addEventListener("click", () => {
