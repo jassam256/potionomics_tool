@@ -194,8 +194,6 @@ class IngredientList {
     const list = this.filteredList;
     const key = this.sortMode.key.split(".");
 
-    console.log(key);
-
     let filteredList = [];
 
     if (this.keyIsString(key) == true) {
@@ -206,9 +204,9 @@ class IngredientList {
         let result = aValue - bValue;
 
         if (aValue < bValue) {
-          return -1;
-        } else if (aValue > bValue) {
           return 1;
+        } else if (aValue > bValue) {
+          return -1;
         } else return 0;
       });
     } else if (key.length != 1) {
@@ -253,9 +251,6 @@ class IngredientList {
     if (this.sortMode.mode == "ascending") {
       this.sortMode.mode = "descending";
     } else this.sortMode.mode = "ascending";
-
-    console.log(this.sortMode.key);
-    console.log(this.sortMode.mode);
   }
 
   keyIsString(key) {
@@ -268,7 +263,6 @@ class IngredientList {
     this.filterList(this.searchList(this.searchString));
 
     if (this.sortMode.key != "none") {
-      console.log("sorting");
       this.sortList();
     }
 
