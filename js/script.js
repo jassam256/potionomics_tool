@@ -44,14 +44,64 @@ function clearSearch() {
 }
 
 function resetLocations() {
+  // Activate location buttons
+  const locationsL = document
+    .getElementsByClassName("location-filter-l")[0]
+    .querySelectorAll(":scope > button");
+  const locationsR = document
+    .getElementsByClassName("location-filter-r")[0]
+    .querySelectorAll(":scope > button");
+
+  locationsL.forEach((button) => {
+    if (button.classList.contains("inactive")) {
+      button.classList.remove("inactive");
+    }
+  });
+
+  locationsR.forEach((button) => {
+    if (button.classList.contains("inactive")) {
+      button.classList.remove("inactive");
+    }
+  });
+
   ingredientList.locationsFilter = locationsDefault;
 }
 
 function resetTypes() {
+  // Activate location buttons
+  const typesL = document
+    .getElementsByClassName("type-filter-l")[0]
+    .querySelectorAll("button");
+  const typesR = document
+    .getElementsByClassName("type-filter-r")[0]
+    .querySelectorAll("button");
+
+  typesL.forEach((button) => {
+    if (button.classList.contains("inactive")) {
+      button.classList.remove("inactive");
+    }
+  });
+
+  typesR.forEach((button) => {
+    if (button.classList.contains("inactive")) {
+      button.classList.remove("inactive");
+    }
+  });
+
   ingredientList.typesFilter = typesDefault;
 }
 
 function resetRarity() {
+  const rarity = document
+    .getElementsByClassName("rarity-filter-content")[0]
+    .querySelectorAll("button");
+
+  rarity.forEach((button) => {
+    if (button.classList.contains("inactive")) {
+      button.classList.remove("inactive");
+    }
+  });
+
   ingredientList.rarityFilter = [1, 2, 3, 4];
 }
 
@@ -124,6 +174,26 @@ locationAll.addEventListener("click", () => {
 locationNone.addEventListener("click", () => {
   ingredientList.locationsFilter = [];
 
+  // Activate location buttons
+  const locationsL = document
+    .getElementsByClassName("location-filter-l")[0]
+    .querySelectorAll(":scope > button");
+  const locationsR = document
+    .getElementsByClassName("location-filter-r")[0]
+    .querySelectorAll(":scope > button");
+
+  locationsL.forEach((button) => {
+    if (!button.classList.contains("inactive")) {
+      button.classList.add("inactive");
+    }
+  });
+
+  locationsR.forEach((button) => {
+    if (!button.classList.contains("inactive")) {
+      button.classList.add("inactive");
+    }
+  });
+
   refresh();
 });
 
@@ -144,6 +214,8 @@ const crBtn = document.getElementById("toggle-cr");
 
 function addLocationToggle(id, location) {
   id.addEventListener("click", () => {
+    id.classList.toggle("inactive");
+
     const locationsList = ingredientList.locationsFilter;
 
     // Add / Remove location from filter locations list
@@ -180,6 +252,26 @@ typesAll.addEventListener("click", () => {
 });
 
 typesNone.addEventListener("click", () => {
+  // Activate location buttons
+  const typesL = document
+    .getElementsByClassName("type-filter-l")[0]
+    .querySelectorAll("button");
+  const typesR = document
+    .getElementsByClassName("type-filter-r")[0]
+    .querySelectorAll("button");
+
+  typesL.forEach((button) => {
+    if (!button.classList.contains("inactive")) {
+      button.classList.add("inactive");
+    }
+  });
+
+  typesR.forEach((button) => {
+    if (!button.classList.contains("inactive")) {
+      button.classList.add("inactive");
+    }
+  });
+
   ingredientList.typesFilter = [];
 
   refresh();
@@ -203,6 +295,8 @@ const slimeBtn = document.getElementById("slime");
 
 function addTypeToggle(id, type) {
   id.addEventListener("click", () => {
+    id.classList.toggle("inactive");
+
     const typesList = ingredientList.typesFilter;
 
     // Add / Remove types from filter types list
@@ -295,6 +389,16 @@ rarityAll.addEventListener("click", () => {
 });
 
 rarityNone.addEventListener("click", () => {
+  const rarity = document
+    .getElementsByClassName("rarity-filter-content")[0]
+    .querySelectorAll("button");
+
+  rarity.forEach((button) => {
+    if (!button.classList.contains("inactive")) {
+      button.classList.add("inactive");
+    }
+  });
+
   ingredientList.rarityFilter = [];
 
   refresh();
@@ -302,6 +406,8 @@ rarityNone.addEventListener("click", () => {
 
 function addRarityFilter(id, number) {
   id.addEventListener("click", () => {
+    id.classList.toggle("inactive");
+
     const rarityFilter = ingredientList.rarityFilter;
 
     rarityFilter.includes(number)
@@ -327,6 +433,23 @@ const soundBtn = document.getElementById("sound-btn");
 const resetTraits = document.getElementById("reset-traits");
 
 resetTraits.addEventListener("click", () => {
+  const traits = document
+    .getElementsByClassName("traits-filter-content")[0]
+    .querySelectorAll("button");
+
+  traits.forEach((button) => {
+    const states = button.classList;
+    if (states.contains("trait-positive")) {
+      states.remove("trait-positive");
+    }
+    if (states.contains("trait-negative")) {
+      states.remove("trait-negative");
+    }
+    if (states.contains("trait-none")) {
+      states.remove("trait-none");
+    }
+  });
+
   ingredientList.resetTraits();
 
   refresh();
@@ -334,6 +457,19 @@ resetTraits.addEventListener("click", () => {
 
 function addTraitToggle(id, traitId) {
   id.addEventListener("click", () => {
+    // Change trait btn class
+    let state = id.classList;
+
+    if (state.contains("trait-positive")) {
+      state.remove("trait-positive");
+      state.add("trait-negative");
+    } else if (state.contains("trait-negative")) {
+      state.remove("trait-negative");
+      state.add("trait-none");
+    } else if (state.contains("trait-none")) {
+      state.remove("trait-none");
+    } else state.add("trait-positive");
+
     ingredientList.toggleTrait(traitId);
 
     refresh();
