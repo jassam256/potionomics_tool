@@ -57,6 +57,10 @@ header {
 button {
   cursor: pointer;
   margin: 0.1rem;
+
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 2px 1px;
 }
 
 /* MAIN SECTION */
@@ -318,4 +322,25 @@ th {
 .filter-section {
   border: 1px solid black;
   padding: var(--space-1);
+}
+
+/* BUTTON FEEDBACK */
+/* LOCATIONS */
+.inactive {
+  background-color: #b8b8b8;
+}
+
+.trait-positive {
+  color: black;
+  background-color: #4fecec;
+}
+
+.trait-negative {
+  color: black;
+  background-color: #e75d5d;
+}
+
+.trait-none {
+  color: black;
+  background-color: #e0bfa6;
 }
