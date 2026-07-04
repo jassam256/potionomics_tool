@@ -58,6 +58,8 @@ class IngredientList {
 
     this.traitsFilter = [null, null, null, null, null];
 
+    this.sortMode = { key: "none", mode: "ascending" };
+
     this.refresh();
   }
 
@@ -181,8 +183,6 @@ class IngredientList {
       traitTarget[traitId] = 0;
     } else traitTarget[traitId] = null;
 
-    console.log(this.traitsFilter);
-
     refresh();
   }
 
@@ -190,9 +190,49 @@ class IngredientList {
     this.traitsFilter = [null, null, null, null, null];
   }
 
+  sortList() {
+    const list = this.filteredList;
+    const key = this.sortMode.key;
+
+    let filteredList = [];
+
+    if (this.keyIsString(key) == true) {
+      filteredList = list.sort((a, b) => {
+        const aValue = a[key].toLowerCase();
+        const bValue = b[key].toLowerCase();
+
+        let result = aValue - bValue;
+
+        if (aValue < bValue) {
+          return -1;
+        } else if (aValue > bValue) {
+          return 1;
+        } else return 0;
+      });
+    } else
+      filteredList = list.sort((a, b) => {
+        return a[key] - b[key];
+      });
+
+    if (this.sortMode.mode != "ascending") {
+      return filteredList.reverse();
+    } else return filteredList;
+  }
+
+  keyIsString(key) {
+    return key == "name" || key == "location" || key == "type" ? true : false;
+  }
+
   refresh() {
     const root = this.getRoot();
+
     this.filterList(this.searchList(this.searchString));
+
+    if (this.sortMode.key != "none") {
+      console.log("sorting");
+      this.sortList();
+    }
+
     const list = this.filteredList;
 
     // Remove current elements
