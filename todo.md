@@ -8,6 +8,7 @@
 - Styling to sidebar section
 - Responsive design for different device screen sizes
 - Add sort mode (on top of filtering)
+- Fix sort mode (wrong ascending / descending)
 
 ## Table
 

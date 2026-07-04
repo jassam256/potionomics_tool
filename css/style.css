@@ -42,6 +42,8 @@
   --mag-c-subtle: #f7f2bd;
   --mag-d-subtle: #a8bff1;
   --mag-e-subtle: #e6c4f0;
+
+  --header-arrow: #858585;
 }
 
 body {
@@ -343,4 +345,28 @@ th {
 .trait-none {
   color: black;
   background-color: #e0bfa6;
+}
+
+/* HEADER INDICATORS */
+.headerSortDown:after,
+.headerSortUp:after {
+  content: " ";
+  position: relative;
+  left: 2px;
+  border: 8px solid transparent;
+}
+
+.headerSortDown:after {
+  top: 10px;
+  border-top-color: var(--header-arrow);
+}
+
+.headerSortUp:after {
+  bottom: 15px;
+  border-bottom-color: var(--header-arrow);
+}
+
+.headerSortDown,
+.headerSortUp {
+  padding-right: 10px;
 }

@@ -356,8 +356,6 @@ function addMagiminFilter(id, key) {
         : (magiminsFilter[key] = 999);
     } else magiminsFilter[key] = id.value;
 
-    console.log(magiminsFilter[key]);
-
     refresh();
   });
 }
@@ -547,6 +545,7 @@ const soundSort = document.getElementById("header-sound");
 function addSortToggle(id, key) {
   id.addEventListener("click", () => {
     ingredientList.setSortMode(key);
+    toggleHeaderIndicator(id);
 
     refresh();
   });
@@ -578,3 +577,32 @@ addSortToggle(sensationSort, "traits.sensation");
 addSortToggle(aromaSort, "traits.aroma");
 addSortToggle(visualSort, "traits.visual");
 addSortToggle(soundSort, "traits.sound");
+
+// HEADER SORT INDICATORS
+function toggleHeaderIndicator(id) {
+  // Remove all OTHER header classes
+  const headers = document.getElementsByTagName("th");
+
+  console.log(id);
+  if (id.getAttribute("id") == "header-icon") {
+    id = document.getElementById("header-id");
+  }
+
+  for (let header of headers) {
+    if (header.getAttribute("id") != id.getAttribute("id")) {
+      if (header.classList.contains("headerSortUp")) {
+        header.classList.remove("headerSortUp");
+      } else if (header.classList.contains("headerSortDown")) {
+        header.classList.remove("headerSortDown");
+      }
+    }
+  }
+
+  if (id.classList.contains("headerSortUp")) {
+    id.classList.remove("headerSortUp");
+    id.classList.add("headerSortDown");
+  } else if (id.classList.contains("headerSortDown")) {
+    id.classList.remove("headerSortDown");
+    id.classList.add("headerSortUp");
+  } else id.classList.add("headerSortUp");
+}

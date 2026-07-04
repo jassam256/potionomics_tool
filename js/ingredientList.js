@@ -194,8 +194,6 @@ class IngredientList {
     const list = this.filteredList;
     const key = this.sortMode.key.split(".");
 
-    console.log(key);
-
     let filteredList = [];
 
     if (this.keyIsString(key) == true) {
@@ -239,23 +237,22 @@ class IngredientList {
       });
 
     if (this.sortMode.mode != "ascending") {
+      console.log("reverse!");
       return filteredList.reverse();
     } else return filteredList;
   }
 
   setSortMode(key) {
     if (this.sortMode.key != key) {
+      this.sortMode.key = key;
       this.sortMode.mode = "ascending";
+      return;
     }
 
     this.sortMode.key = key;
-
     if (this.sortMode.mode == "ascending") {
       this.sortMode.mode = "descending";
     } else this.sortMode.mode = "ascending";
-
-    console.log(this.sortMode.key);
-    console.log(this.sortMode.mode);
   }
 
   keyIsString(key) {
@@ -268,7 +265,6 @@ class IngredientList {
     this.filterList(this.searchList(this.searchString));
 
     if (this.sortMode.key != "none") {
-      console.log("sorting");
       this.sortList();
     }
 
