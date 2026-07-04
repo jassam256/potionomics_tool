@@ -1866,7 +1866,7 @@ const iceCraggs = [
   },
   {
     id: 102,
-    name: "Rock salt",
+    name: "Rock Salt",
     location: "Ice Craggs",
     rarity: 2,
     type: "Mineral",
@@ -2144,7 +2144,7 @@ const crystallineForest = [
   },
   {
     id: 127,
-    name: "Jeweled scarab",
+    name: "Jeweled Scarab",
     location: "Crystalline Forest",
     rarity: 1,
     type: "Bug",
