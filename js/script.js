@@ -152,6 +152,7 @@ function resetAllFields() {
   resetTypes();
   resetSort();
   resetTraitButtons();
+  resetAllMagiminToggles();
   ingredientList.resetTraits();
 }
 
@@ -431,6 +432,30 @@ addMagiminToggle(bToggle, "b");
 addMagiminToggle(cToggle, "c");
 addMagiminToggle(dToggle, "d");
 addMagiminToggle(eToggle, "e");
+
+function resetMagiminToggle(id, type) {
+  const target = document.getElementById(id);
+
+  if (target.classList.contains(`${type}-active`)) {
+    target.classList.remove(`${type}-active`);
+  }
+  if (target.classList.contains(`${type}-inactive`)) {
+    target.classList.remove(`${type}-inactive`);
+  }
+  if (!target.classList.contains(`${type}-neutral`)) {
+    target.classList.add(`${type}-neutral`);
+  }
+
+  setMagiminValues(type, "", "");
+}
+
+function resetAllMagiminToggles() {
+  resetMagiminToggle("a-toggle", "a");
+  resetMagiminToggle("b-toggle", "b");
+  resetMagiminToggle("c-toggle", "c");
+  resetMagiminToggle("d-toggle", "d");
+  resetMagiminToggle("e-toggle", "e");
+}
 
 // Rarity
 const rarity1 = document.getElementById("rarity-1");
