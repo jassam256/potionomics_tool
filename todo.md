@@ -10,6 +10,13 @@
 - Add sort mode (on top of filtering)
 - Fix sort mode (wrong ascending / descending)
 
+Magimin Toggles
+default: (nothing, nothing) == (0, 999) (either contain or not contain)
+state2: 1, 999 (must contain target Magimin)
+state3: (nothing), 0 (must NOT contain target Magimin)
+
+active, active-dark, normal
+
 ## Table
 
 - Add header fields for sorting (ascending, descending)

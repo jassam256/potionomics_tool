@@ -31,8 +31,8 @@
 
   /* magimin colors */
   --mag-a: #cf5d5d;
-  --mag-b: #92e75a;
-  --mag-c: #f3e676;
+  --mag-b: #7bc946;
+  --mag-c: #e4d75d;
   --mag-d: #5981d8;
   --mag-e: #d376f0;
   --mag-total: #b6b6b6;
@@ -44,6 +44,71 @@
   --mag-e-subtle: #e6c4f0;
 
   --header-arrow: #858585;
+}
+
+.a-neutral {
+  background-color: var(--mag-a-subtle);
+}
+
+.a-active {
+  background-color: var(--mag-a);
+  color: white;
+}
+
+.a-inactive {
+  background-color: #b8b8b8;
+}
+
+.b-neutral {
+  background-color: var(--mag-b-subtle);
+}
+
+.b-active {
+  background-color: var(--mag-b);
+  color: white;
+}
+
+.b-inactive {
+  background-color: #b8b8b8;
+}
+
+.c-neutral {
+  background-color: var(--mag-c-subtle);
+}
+
+.c-active {
+  background-color: var(--mag-c);
+  color: white;
+}
+
+.c-inactive {
+  background-color: #b8b8b8;
+}
+
+.d-neutral {
+  background-color: var(--mag-d-subtle);
+}
+
+.d-active {
+  background-color: var(--mag-d);
+  color: white;
+}
+
+.d-inactive {
+  background-color: #b8b8b8;
+}
+
+.e-neutral {
+  background-color: var(--mag-e-subtle);
+}
+
+.e-active {
+  background-color: var(--mag-e);
+  color: white;
+}
+
+.e-inactive {
+  background-color: #b8b8b8;
 }
 
 body {

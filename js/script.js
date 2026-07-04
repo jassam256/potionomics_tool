@@ -373,6 +373,65 @@ addMagiminFilter(eMaxInput, "eMax");
 addMagiminFilter(totalMinInput, "totalMin");
 addMagiminFilter(totalMaxInput, "totalMax");
 
+// Magimin Toggles
+const aToggle = document.getElementById("a-toggle");
+const bToggle = document.getElementById("b-toggle");
+const cToggle = document.getElementById("c-toggle");
+const dToggle = document.getElementById("d-toggle");
+const eToggle = document.getElementById("e-toggle");
+
+function addMagiminToggle(id, type) {
+  id.addEventListener("click", () => {
+    if (id.classList.contains(`${type}-neutral`)) {
+      id.classList.remove(`${type}-neutral`);
+      id.classList.add(`${type}-active`);
+
+      setMagiminValues(type, "1", "999");
+    } else if (id.classList.contains(`${type}-active`)) {
+      id.classList.remove(`${type}-active`);
+      id.classList.add(`${type}-inactive`);
+
+      setMagiminValues(type, "0", "0");
+    } else if (id.classList.contains(`${type}-inactive`)) {
+      id.classList.remove(`${type}-inactive`);
+      id.classList.add(`${type}-neutral`);
+
+      setMagiminValues(type, "", "");
+    }
+
+    refresh();
+  });
+}
+
+function setMagiminValues(type, min, max) {
+  const magiminsFilter = ingredientList.magiminsFilter;
+
+  const minValue = document.getElementById(type + "-min");
+  const maxValue = document.getElementById(type + "-max");
+
+  console.log(minValue);
+  console.log(maxValue);
+
+  minValue.value = min;
+  maxValue.value = max;
+
+  const keyMin = [type + "Min"];
+  const keyMax = [type + "Max"];
+
+  min == ""
+    ? (magiminsFilter[keyMin] = 0)
+    : (magiminsFilter[keyMin] = Number(min));
+  max == ""
+    ? (magiminsFilter[keyMax] = 999)
+    : (magiminsFilter[keyMax] = Number(max));
+}
+
+addMagiminToggle(aToggle, "a");
+addMagiminToggle(bToggle, "b");
+addMagiminToggle(cToggle, "c");
+addMagiminToggle(dToggle, "d");
+addMagiminToggle(eToggle, "e");
+
 // Rarity
 const rarity1 = document.getElementById("rarity-1");
 const rarity2 = document.getElementById("rarity-2");
