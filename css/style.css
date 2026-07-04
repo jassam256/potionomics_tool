@@ -150,6 +150,10 @@ th {
   position: sticky;
   top: 0;
   z-index: 1000;
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 /* cell and border */

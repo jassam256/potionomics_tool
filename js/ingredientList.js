@@ -192,7 +192,9 @@ class IngredientList {
 
   sortList() {
     const list = this.filteredList;
-    const key = this.sortMode.key;
+    const key = this.sortMode.key.split(".");
+
+    console.log(key);
 
     let filteredList = [];
 
@@ -209,6 +211,28 @@ class IngredientList {
           return 1;
         } else return 0;
       });
+    } else if (key.length != 1) {
+      filteredList = list.sort((a, b) => {
+        if (key[1] == "total") {
+          const totalA =
+            a.magimins.a +
+            a.magimins.b +
+            a.magimins.c +
+            a.magimins.d +
+            a.magimins.e;
+
+          const totalB =
+            b.magimins.a +
+            b.magimins.b +
+            b.magimins.c +
+            b.magimins.d +
+            b.magimins.e;
+
+          return totalA - totalB;
+        }
+
+        return a[key[0]][key[1]] - b[key[0]][key[1]];
+      });
     } else
       filteredList = list.sort((a, b) => {
         return a[key] - b[key];
@@ -217,6 +241,21 @@ class IngredientList {
     if (this.sortMode.mode != "ascending") {
       return filteredList.reverse();
     } else return filteredList;
+  }
+
+  setSortMode(key) {
+    if (this.sortMode.key != key) {
+      this.sortMode.mode = "ascending";
+    }
+
+    this.sortMode.key = key;
+
+    if (this.sortMode.mode == "ascending") {
+      this.sortMode.mode = "descending";
+    } else this.sortMode.mode = "ascending";
+
+    console.log(this.sortMode.key);
+    console.log(this.sortMode.mode);
   }
 
   keyIsString(key) {
