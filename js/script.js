@@ -342,6 +342,7 @@ const magiminClear = document.getElementById("magimin-clear");
 
 magiminClear.addEventListener("click", () => {
   resetMagimins();
+  resetAllMagiminToggles();
 
   refresh();
 });
