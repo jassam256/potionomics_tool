@@ -412,9 +412,6 @@ function setMagiminValues(type, min, max) {
   const minValue = document.getElementById(type + "-min");
   const maxValue = document.getElementById(type + "-max");
 
-  console.log(minValue);
-  console.log(maxValue);
-
   minValue.value = min;
   maxValue.value = max;
 
@@ -669,7 +666,6 @@ function toggleHeaderIndicator(id) {
   // Remove all OTHER header classes
   const headers = document.getElementsByTagName("th");
 
-  console.log(id);
   if (id.getAttribute("id") == "header-icon") {
     id = document.getElementById("header-id");
   }

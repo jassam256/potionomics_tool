@@ -237,7 +237,6 @@ class IngredientList {
       });
 
     if (this.sortMode.mode != "ascending") {
-      console.log("reverse!");
       return filteredList.reverse();
     } else return filteredList;
   }
