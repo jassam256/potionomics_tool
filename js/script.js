@@ -153,6 +153,7 @@ function resetAllFields() {
   resetSort();
   resetTraitButtons();
   resetAllMagiminToggles();
+  resetAllHeaderIndicators();
   ingredientList.resetTraits();
 }
 
@@ -690,4 +691,16 @@ function toggleHeaderIndicator(id) {
     id.classList.remove("headerSortDown");
     id.classList.add("headerSortUp");
   } else id.classList.add("headerSortUp");
+}
+
+function resetAllHeaderIndicators() {
+  const headers = document.getElementsByTagName("th");
+
+  for (let header of headers) {
+    if (header.classList.contains("headerSortUp")) {
+      header.classList.remove("headerSortUp");
+    } else if (header.classList.contains("headerSortDown")) {
+      header.classList.remove("headerSortDown");
+    }
+  }
 }
